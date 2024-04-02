@@ -179,7 +179,7 @@ class ReactAgent:
                      max_tokens=100,
                      model_name="gpt-4",
                      model_kwargs={"stop": "\n"},
-                     # openai_api_key=os.environ['OPENAI_API_KEY']
+                     openai_api_key=os.environ['OPENAI_API_KEY']
                  ),
                  sim_encoder=get_similarity_encoder()
                  ) -> None:
@@ -236,7 +236,7 @@ class ReactAgent:
             action = raw_action.split('[')
             action_type, argument = action[0], action[1].strip(']')
         except:
-            action_type, argument = 'Search', raw_action
+            action_type, argument = 'Act', raw_action
         self.logger.info(self.scratchpad.split('\n')[-1])
 
         # Observe
@@ -247,15 +247,15 @@ class ReactAgent:
             signal = self.gpt_correct()
 
             if signal:
-                self.scratchpad += 'Answer is CORRECT.'
+                self.scratchpad += ' Answer is CORRECT.'
             else:
-                self.scratchpad += 'Answer is INCORRECT.'
+                self.scratchpad += ' Answer is INCORRECT.'
 
             self.finished = True
             self.step_n += 1
             return
 
-        if action_type == 'Search':
+        if action_type == 'Act':
             try:
                 docs = self.retriever.get_relevant_documents(argument)
 
@@ -265,11 +265,8 @@ class ReactAgent:
                 #                                                                                                :120]
                 # self.logger.info(extract)
                 concat = ''
-                print(len(docs))
                 for i in range(3):
                     doc_details = docs[i].to_json()['kwargs']
-                    print(type(doc_details))
-                    # text = doc_details['page_content']
                     concat += str(doc_details)
 
                 if len(self.enc.encode(concat)) > 3000:

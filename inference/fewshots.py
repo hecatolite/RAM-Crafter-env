@@ -180,3 +180,6 @@ Decomposed memory: No animal has ever been to the moon.
 Existing memory: Meta has never moved its headquarters to Austin. 
 Decomposed memory: Meta has never moved its headquarters to Austin. 
 """
+
+CRAFTER_SAMPLE = """
+"""
