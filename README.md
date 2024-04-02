@@ -6,13 +6,6 @@
 - [🚀 **Quick Start**](#-quick-start)
     - [**Step 1: Prerequisites**](#step-1-prerequisites)
     - [**Step 2: Inference**](#step-2-inference)
-- [👩‍🏫 **Different types of feedback in RAM**](#-different-types-of-feedback-in-ram)
-- [🔍 **Different retrieval strategies**](#-different-retrieval-strategies)
-- [**Human Study**](#human-study)
-    - [**Interactivate Interface**](#interactivate-interface)
-    - [**Result**](#result)
-- [📝 **Citation**](#-citation)
-- [📣 **Contacts**](#-contacts)
 
 ## ⚙ Installation
 
